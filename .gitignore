@@ -1,0 +1,3 @@
+# Project exclude paths
+/bookstore-api/target/
+/cambio-api/target/
