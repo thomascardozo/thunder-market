@@ -1,5 +1,6 @@
 package com.tm.controller;
 
+import com.tm.exception.CurrencyUnsupportedException;
 import com.tm.model.Cambio;
 import com.tm.repository.CambioRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -37,9 +38,9 @@ public class CambioController {
 			@PathVariable("to") String to
 			) {
 
-		logger.info("getCambio is called with -> {}, {} and {}", amount, from, to);
+		logger.info("getCambio is called with -> U$ {} to convert to {}", amount, to);
 		var cambio = repository.findByFromAndTo(from, to);
-		if (cambio == null) throw new RuntimeException("Currency Unsupported");
+		if (cambio == null) throw new CurrencyUnsupportedException("Currency Unsupported");
 		
 		var port = environment.getProperty("local.server.port");
 		BigDecimal conversionFactor = cambio.getConversionFactor();

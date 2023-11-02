@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.NoSuchElementException;
+
 @ControllerAdvice
 public class ExceptionGlobalHandler {
 
@@ -18,5 +20,25 @@ public class ExceptionGlobalHandler {
     public ResponseEntity<?> handleAuthenticationException(AuthenticationException authenticationException) {
         var details = new ExceptionDetails(HttpStatus.UNAUTHORIZED.value(), authenticationException.getMessage());
         return new ResponseEntity<>(details, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(CurrencyUnsupportedException.class)
+    public ResponseEntity<?> handleCurrencyUnsupportedException(CurrencyUnsupportedException unsupportedException) {
+
+
+        var details = new ExceptionDetails(HttpStatus.NOT_FOUND.value(), unsupportedException.getLocalizedMessage());
+        return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<?> handleNoSuchElementException(NoSuchElementException noSuchElementException) {
+        var details = new ExceptionDetails(HttpStatus.NOT_FOUND.value(), noSuchElementException.getLocalizedMessage());
+        return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(BookNotFoundException.class)
+    public ResponseEntity<?> handleBookNotFoundException(BookNotFoundException bookNotFoundException) {
+        var details = new ExceptionDetails(HttpStatus.NOT_FOUND.value(), bookNotFoundException.getLocalizedMessage());
+        return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
     }
 }

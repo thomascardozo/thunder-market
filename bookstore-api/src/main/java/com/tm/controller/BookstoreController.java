@@ -1,9 +1,10 @@
 package com.tm.controller;
 
+import com.tm.exception.BookNotFoundException;
+import com.tm.exception.CurrencyUnsupportedException;
 import com.tm.model.Book;
 import com.tm.proxy.CambioProxy;
 import com.tm.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,20 +32,23 @@ public class BookstoreController {
                       @PathVariable("id") Long id,
                       @PathVariable("currency") String currency){
 
-        var book = bookService.findById(id, accessToken).get();
+        var book = bookService.findById(id, accessToken);
 
-        if (book == null) throw new RuntimeException("Book not Found");
+        if (book == null || book.isEmpty()) throw new BookNotFoundException("Book not Found");
+
+        try {
+            var cambio = proxy.getCambio(book.get().getPrice(), "USD", currency);
+            var port = env.getProperty("local.server.port");
+            book.get().setEnvironment(
+                    "Book port: " + port +
+                            " Cambio Port " + cambio.getEnvironment());
+            book.get().setPrice(cambio.getConvertedValue());
+        } catch (Exception e) {
+            throw new CurrencyUnsupportedException(e.getMessage());
+        }
 
 
-        var cambio = proxy.getCambio(book.getPrice(), "USD", currency);
-
-        var port = env.getProperty("local.server.port");
-        book.setEnvironment(
-                "Book port: " + port +
-                        " Cambio Port " + cambio.getEnvironment());
-        book.setPrice(cambio.getConvertedValue());
-
-        return book;
+        return book.get();
     }
 
 
