@@ -1,6 +1,6 @@
 # Thunder-Market: O Marketplace dos ThunderCats
 
-Bem-vindo ao Thunder-Market, o marketplace exclusivo para os heróis do mundo dos ThunderCats! Este projeto visa proporcionar uma experiência única de compra e venda para os habitantes de Thundera e além.
+Bem-vindo ao Thunder-Market, o marketplace exclusivo para os heróis do mundo dos ThunderCats! Este projeto visa proporcionar uma experiência única de compra e venda para os seres de Thundera e além!
 
 ## 🚀 Recursos Principais
 
@@ -29,15 +29,7 @@ Bem-vindo ao Thunder-Market, o marketplace exclusivo para os heróis do mundo do
 
 ## 🎯 Objetivo Final
 
-O Thunder-Market aspira a ser o principal destino para compras no universo ThunderCat, oferecendo uma plataforma única para comprar e vender os tesouros mais extraordinários. Junte-se a nós nesta jornada emocionante e faça parte da revolução do comércio em Thundera!
-
-## 🚀 Como Contribuir
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/IncrivelNovaFeature`)
-3. Faça commit das suas alterações (`git commit -m 'Adiciona uma incrível nova feature'`)
-4. Faça push para a branch (`git push origin feature/IncrivelNovaFeature`)
-5. Abra um pull request
+O Thunder-Market aspira a ser o destino preferido para compras no universo ThunderCat, oferecendo uma plataforma única para comprar e vender os tesouros mais extraordinários. Junte-se a nós nesta jornada emocionante e faça parte da revolução do comércio para os seres de Thundera de demais habitantes do terceiro mundo!
 
 ## 📝 Licença
 
