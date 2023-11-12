@@ -29,11 +29,11 @@ Bem-vindo ao Thunder-Market, o marketplace exclusivo para os heróis do mundo do
 
 ## 🎯 Objetivo Final
 
-O Thunder-Market aspira a ser o destino preferido para compras no universo ThunderCat, oferecendo uma plataforma única para comprar e vender os tesouros mais extraordinários. Junte-se a nós nesta jornada emocionante e faça parte da revolução do comércio para os seres de Thundera de demais habitantes do terceiro mundo!
+O Thunder-Market aspira a ser o destino preferido para compras no universo ThunderCat, oferecendo uma plataforma única para comprar e vender os tesouros mais extraordinários. Junte-se a nós nesta jornada emocionante e faça parte da revolução do comércio para os seres de Thundera e demais habitantes do terceiro mundo!
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+Este projeto está licenciado sob a Licença MIT.
 
 ---
 
