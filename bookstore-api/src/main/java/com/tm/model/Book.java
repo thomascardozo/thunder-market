@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity(name = "book")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -26,6 +27,9 @@ public class Book implements Serializable{
 	
 	@Column(nullable = false)
 	private Double price;
+
+	@Column(name = "book_id", nullable = false)
+	private UUID bookId;
 	
 	@Column(nullable = false, length = 250)
 	private String title;
@@ -41,7 +45,7 @@ public class Book implements Serializable{
 	public Book(Long id, String author, String title,
                 Date launchDate, Double price,
                 String currency,
-                String environment) {
+                String environment, UUID bookId) {
 		this.id = id;
 		this.author = author;
 		this.launchDate = launchDate;
@@ -49,6 +53,7 @@ public class Book implements Serializable{
 		this.title = title;
 		this.currency = currency;
 		this.environment = environment;
+		this.bookId = bookId;
 	}
 
 	public Long getId() {
@@ -107,6 +112,14 @@ public class Book implements Serializable{
 		this.environment = environment;
 	}
 
+	public UUID getBookId() {
+		return bookId;
+	}
+
+	public void setBookId(UUID bookId) {
+		this.bookId = bookId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -118,6 +131,7 @@ public class Book implements Serializable{
 		result = prime * result + ((launchDate == null) ? 0 : launchDate.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((bookId == null) ? 0 : bookId.hashCode());
 		return result;
 	}
 
@@ -164,6 +178,11 @@ public class Book implements Serializable{
 			if (other.title != null)
 				return false;
 		} else if (!title.equals(other.title))
+			return false;
+		if (bookId == null) {
+			if (other.bookId != null)
+				return false;
+		} else if (!bookId.equals(other.bookId))
 			return false;
 		return true;
 	}

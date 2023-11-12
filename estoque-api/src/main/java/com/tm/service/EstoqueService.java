@@ -1,21 +1,23 @@
 package com.tm.service;
 
 import com.tm.dto.SimpleResponse;
-import com.tm.model.Book;
-import com.tm.repository.BookRepository;
+
+import com.tm.model.Estoque;
+import com.tm.repository.EstoqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class BookService {
+public class EstoqueService {
 
     @Autowired
-    private BookRepository repository;
+    private EstoqueRepository repository;
 
     @Autowired
     private Environment environment;
@@ -24,28 +26,33 @@ public class BookService {
     private final JwtService jwtService;
 
     @Autowired
-    public BookService(BookRepository repository, Environment environment, JwtService jwtService) {
+    public EstoqueService(EstoqueRepository repository, Environment environment, JwtService jwtService) {
         this.repository = repository;
         this.environment = environment;
         this.jwtService = jwtService;
     }
 
 
-    public List<Book> findAll() {
+    public List<Estoque> findAll() {
         return null;
     }
 
 
-    public void delete(Book book) {
+    public void delete(Estoque book) {
 
     }
 
 
-    public Book findById(UUID id, String accessToken) {//Long id  |  Optional<Book>
+    public Optional<Estoque> findById(Long id, String accessToken) {
         SimpleResponse sr = getData(accessToken);
         System.out.println("PRINTANDO O USER >>: " + sr.authUser());
-        return repository.findByBookId(id);
-        // repository.findById(id);
+        return repository.findById(id);
+    }
+
+    public Optional<Estoque> findByItemId(UUID itemId, String accessToken) {
+        SimpleResponse sr = getData(accessToken);
+        System.out.println("PRINTANDO O USER >>: " + sr.authUser());
+        return repository.findByItemId(itemId);
     }
 
     public SimpleResponse getData(String accessToken){
@@ -55,7 +62,7 @@ public class BookService {
         return new SimpleResponse(ok.name(), ok.value(), authUser);
     }
 
-    public Book getById(Long id) {
+    public Estoque getById(Long id) {
         return repository.getById(id);
     }
 
