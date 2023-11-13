@@ -34,9 +34,9 @@ public class BookstoreController {
     @GetMapping("{id}/{currency}")//
     public Book getBookWithValueConvertedFromUSDToLocalCurrency(@RequestHeader String accessToken,
                                                                 @PathVariable("id") UUID id, // Long id
-                                                                @PathVariable("currency") String currency){
+                                                                @PathVariable("currency") String currency) {
 
-        var book = bookService.findById(id, accessToken);
+        var book = bookService.findById(id,accessToken); //.findById(id, accessToken);
 
         if (book == null) throw new BookNotFoundException("Book not Found"); // book.isEmpty()
 
@@ -55,7 +55,7 @@ public class BookstoreController {
     }
 
     public List<ResponseEntity> getStockBooks(@RequestHeader String accessToken,
-                                              @PathVariable("id") Long id){
+                                              @PathVariable("id") Long id) {
         return null;
     }
 

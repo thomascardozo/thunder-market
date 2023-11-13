@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControllerFoo {
 
     @GetMapping
-    public String getFoo(){
+    public String getFoo() {
         return "Donkey Kung Foo!";
     }
 }

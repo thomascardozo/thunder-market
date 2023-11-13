@@ -12,14 +12,14 @@
     </parent>
 
     <groupId>com.tm</groupId>
-    <artifactId>generic-store-api</artifactId>
+    <artifactId>estoque-api</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>generic-store-api</name>
-    <description>Bookstore simple App</description>
+    <name>estoque-api</name>
+    <description>Estoque simple App</description>
 
     <properties>
         <java.version>17</java.version>
-        <!--        <spring-cloud.version>2022.3.1</spring-cloud.version>-->
+<!--        <spring-cloud.version>2022.3.1</spring-cloud.version>-->
     </properties>
 
     <dependencies>

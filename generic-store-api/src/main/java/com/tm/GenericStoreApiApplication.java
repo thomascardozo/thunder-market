@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 @ImportAutoConfiguration({FeignAutoConfiguration.class})
 public class GenericStoreApiApplication {
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(GenericStoreApiApplication.class, args);
     }
 }

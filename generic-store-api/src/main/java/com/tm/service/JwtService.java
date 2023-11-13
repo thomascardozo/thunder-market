@@ -1,8 +1,8 @@
 package com.tm.service;
 
 import com.tm.dto.AuthUserResponse;
-import com.tm.exception.AuthenticationException;
 import com.tm.exception.ValidationException;
+import com.tm.exception.AuthenticationException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -26,13 +26,15 @@ public class JwtService {
     @Value("${app.token.secret-key}")
     private String secretKey;
 
-    public AuthUserResponse getAuthUserResponse(String token){
+    public AuthUserResponse getAuthUserResponse(String token) {
         var tokenClaims = getClaims(token);
         var userId = Integer.valueOf((String) tokenClaims.get("id"));
         return new AuthUserResponse(userId, (String) tokenClaims.get("username"));
-    };
+    }
 
-    private Claims getClaims(String token){
+    ;
+
+    private Claims getClaims(String token) {
 
         var accessToken = extractToken(token);
         try {
@@ -43,24 +45,24 @@ public class JwtService {
                     .parseSignedClaims(accessToken)
                     .getPayload();
 
-        } catch(Exception e){
+        } catch (Exception e) {
             throw new AuthenticationException("Invalid token " + e.getMessage());
         }
     }
 
-    public void validateAccessToken(String token){
+    public void validateAccessToken(String token) {
         getClaims(token);
     }
 
-    private SecretKey generateSign(){
+    private SecretKey generateSign() {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
-    private String extractToken(String token){
-        if(ObjectUtils.isEmpty(token)){
+    private String extractToken(String token) {
+        if (ObjectUtils.isEmpty(token)) {
             throw new ValidationException("The access was not informed!");
         }
-        if (token.contains(EMPTY_SPACE)){
+        if (token.contains(EMPTY_SPACE)) {
             return token.split(EMPTY_SPACE)[TOKEN_INDEX];
         }
         return token;

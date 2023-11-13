@@ -48,7 +48,7 @@ public class BookService {
         // repository.findById(id);
     }
 
-    public SimpleResponse getData(String accessToken){
+    public SimpleResponse getData(String accessToken) {
         jwtService.validateAccessToken(accessToken);
         var authUser = jwtService.getAuthUserResponse(accessToken);
         var ok = HttpStatus.OK;
