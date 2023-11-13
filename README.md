@@ -1,5 +1,5 @@
 # Thunder-Market: O Marketplace dos ThunderCats
-<img src="resources/img/img.png">
+<img src="generic-store-api/src/main/resources/img/img.png">
 Bem-vindo ao Thunder-Market, o marketplace exclusivo para os heróis do mundo dos ThunderCats! Este projeto visa proporcionar uma experiência única de compra e venda para os seres de Thundera e além!
 
 ## 🚀 Recursos Principais
