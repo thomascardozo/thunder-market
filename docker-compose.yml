@@ -53,6 +53,19 @@ services:
     ports:
       - "5435:5432"
 
+  auction-db:
+    container_name: auction-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: auction-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    networks:
+      - auth-net
+    ports:
+      - "5436:5432"
+
   rabbit-mq:
     image: rabbitmq:3.8.14-management
     container_name: 'rabbitmq'
