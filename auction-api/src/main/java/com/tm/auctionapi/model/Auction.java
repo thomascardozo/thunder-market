@@ -1,17 +1,20 @@
 package com.tm.auctionapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name = "auction")
+@Entity
 @Data
-public class Auction implements Serializable {
-
-    private static final long serialVersion = 1L;
+@ToString(exclude = {"bids", "participants"})
+public class Auction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +22,26 @@ public class Auction implements Serializable {
 
     @Column(name = "product_name", nullable = false)
     private String productName;
-
-    @Column(name = "starting_price", nullable = false)
     private BigDecimal startingPrice;
-
-    @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
-
-    @Column(name = "end_time)", nullable = false)
     private LocalDateTime endTime;
+
+    @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Bid> bids = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "auction_participant",
+            joinColumns = @JoinColumn(name = "auction_id"),
+            inverseJoinColumns = @JoinColumn(name = "participant_id"))
+    @JsonBackReference
+    private List<Participant> participants = new ArrayList<>();
+
+    public BigDecimal getCurrentHighestBid() {
+        return bids.stream()
+                .map(Bid::getAmount)
+                .max(BigDecimal::compareTo)
+                .orElse(BigDecimal.ZERO);
+    }
 }
