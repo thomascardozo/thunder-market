@@ -1,4 +1,4 @@
-# Thunder-Market: The ThunderCats Marketplace
+# Thunder-Market: The ThunderCats Marketplace (wip)
 <img src="generic-store-api/src/main/resources/img/img.png">
 Welcome to Thunder-Market, the exclusive marketplace for the heroes of the ThunderCats world! This project aims to provide a unique buying and selling experience for the beings of Thundera and beyond!
 
