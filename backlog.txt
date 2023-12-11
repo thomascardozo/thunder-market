@@ -1,1 +1,0 @@
-1) criar serviço basico de estoques e endpoint no book-service para chamada a este sv;
