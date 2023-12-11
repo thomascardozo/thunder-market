@@ -1,41 +1,37 @@
 # Thunder-Market: O Marketplace dos ThunderCats
 <img src="generic-store-api/src/main/resources/img/img.png">
-Bem-vindo ao Thunder-Market, o marketplace exclusivo para os heróis do mundo dos ThunderCats! Este projeto visa proporcionar uma experiência única de compra e venda para os seres de Thundera e além!
+Welcome to Thunder-Market, the exclusive marketplace for the heroes of the ThunderCats world! This project aims to provide a unique buying and selling experience for the beings of Thundera and beyond!
 
-## 🚀 Recursos Principais
+## 🚀 Main Features
 
-1. **Lojas Especializadas:** Explore lojas únicas, cada uma representando uma especialidade do universo ThunderCats.
+1. **Specialized Stores:** Explore unique shops, each representing a specialty from the ThunderCats universe (wip).
 
-2. **Integração com Personagens:** Encarne seus heróis favoritos enquanto navega pelo marketplace.
+2. **Character Integration:** Embody your favorite heroes while browsing the marketplace (to do).
 
-3. **Sistema de Leilões:** Participe de leilões para itens exclusivos e raros.
+3. **Auction System:** Participate in auctions for exclusive and rare items (wip).
 
-4. **Pagamento Seguro:** Transações seguras para compradores e vendedores.
+4. **Secure Payments:** Secure transactions for both buyers and sellers (todo).
 
-5. **Mensageria:** Comunicação eficiente com RabbitMQ.
+5. **Assynchrony communication:** RabbitMQ.
 
-6. **Banco de Dados:** Armazenamento eficiente com Postgres.
+6. **Database:** Efficient storage with Postgres.
 
-7. **Autenticação Segura:** JWT para garantir acesso autorizado.
+7. **Secure Authentication:** JWT to ensure authorized access.
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
-- **Java 17:** Desenvolvimento robusto e eficiente.
-- **Spring Boot 3:** Desenvolvimento rápido e APIs RESTful.
-- **RabbitMQ:** Comunicação assíncrona eficiente.
-- **Postgres:** Armazenamento escalável.
-- **JWT (JSON Web Tokens):** Autenticação segura.
-- **Docker:** Conteinirização.
+- **Java 17:** Robust and efficient development.
+- **Spring Boot 3:** Rapid development and RESTful APIs.
+- **RabbitMQ:** Efficient asynchronous communication.
+- **Postgres:** Scalable storage.
+- **JWT:** Secure authentication.
+- **Docker:** Containerization.
 
-## 🎯 Objetivo Final
+🎯 Final Objective
+Thunder-Market aspires to be the preferred destination for shopping in the ThunderCat universe, offering a unique platform to buy and sell the most extraordinary treasures. Join us on this exciting journey and be part of the commerce revolution for the beings of Thundera and other inhabitants of the third world!
 
-O Thunder-Market aspira a ser o destino preferido para compras no universo ThunderCat, oferecendo uma plataforma única para comprar e vender os tesouros mais extraordinários. Junte-se a nós nesta jornada emocionante e faça parte da revolução do comércio para os seres de Thundera e demais habitantes do terceiro mundo!
+📝 License
+This project is licensed under the MIT License.
 
-## 📝 Licença
-
-Este projeto está licenciado sob a Licença MIT.
-
----
-
-**Nota:** Este projeto é fictício e faz parte de um ambiente de aprendizado e desenvolvimento. Thunder-Market não tem afiliação oficial com a marca ThunderCats.
+Note: This project is fictional and is part of a learning and development environment. Thunder-Market has no official affiliation with the ThunderCats brand.
 
